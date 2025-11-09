@@ -1,0 +1,132 @@
+.main_container {
+    width: 50vw;
+    /* border: 1px solid black; */
+    margin: auto;
+    height: 100vh;
+    background-color: white;
+    background-color: rgb(249 250 251);
+    ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+    /* padding: 50px 20px 0; */
+}
+
+.add_logo {
+    background-color: rgb(10, 27, 54);
+    padding: 6px !important;
+    position: absolute;
+    bottom: 70px !important;
+    right: 20px;
+    border-radius: 20px;
+}
+
+.grid_logo {
+    background-color: rgb(10, 27, 54);
+    padding: 8px;
+    position: absolute;
+    bottom: 120px !important;
+    right: 20px;
+    border-radius: 20px;
+}
+
+.event_vid_container {
+    /* width: 90%; */
+    /* border: 1px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1vw;
+}
+
+.horizontal_view_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.act_ev_vid_container {
+    width: 170px;
+    height: fit-content;
+    /* border: 1px solid black; */
+
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    animation: fade 0.5s;
+    margin: 1vw;
+    margin-bottom: 15px;
+}
+
+.act_ev_vid_container .video_top {
+    width: 170px;
+    height: auto;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    position: relative;
+}
+
+.act_ev_vid_container .act_video {
+    width: 178px;
+    height: auto;
+    border-radius: 3px;
+}
+
+.act_ev_vid_container .video_btm {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.act_ev_vid_container .thumbnail_image {
+    height: 110px;
+    width: 100%;
+}
+
+.video_btm .more_btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.act_ev_vid_container .video_title {
+    font-weight: bold;
+}
+
+.play_btn {
+    border-radius: 50%;
+    background-color: rgb(207, 207, 207);
+    padding: 9px;
+    position: absolute;
+    left: 69px;
+    top: 34px;
+    /* box-shadow: rgba(100, 100, 111) 0px 7px 29px 0px; */
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media (max-width: 900px) {
+    .main_container {
+        width: 100vw;
+    }
+
+    .form_container {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 362px) {
+    .event_vid_container {
+        justify-content: center;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

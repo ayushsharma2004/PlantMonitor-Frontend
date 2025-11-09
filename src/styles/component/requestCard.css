@@ -1,0 +1,112 @@
+.request_card {
+    position: relative;
+    width: fit-content;
+    background-color: #e7f8ff;
+    border-radius: 0.75em;
+    cursor: pointer;
+    transition: ease 0.2s;
+    box-shadow: 1em 1em 1em #d8dae0b1, -0.75em -0.75em 1em #ffffff;
+    border: 1.5px solid #5697ed;
+}
+
+.request_container {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    margin-left: 0.8em;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+}
+
+.request_left {
+    display: flex;
+    align-items: center;
+}
+
+
+.request_vid_button {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background: linear-gradient(30deg, #1677ff 20%, #509AF8 80%);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 0 rgba(22, 119, 255, 0.6);
+    animation: pulse 1.2s cubic-bezier(0.8, 0, 0, 1) infinite;
+    align-items: center;
+    border: 0;
+}
+
+.request_vid_button:is(:hover, :focus) {
+    transform: scale(1.1);
+}
+
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(22, 119, 255, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(22, 119, 255, 0);
+    }
+}
+
+
+.request_text-wrap {
+    font-family: 'poppins';
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    color: #333;
+}
+
+.request_status {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    font-family: 'poppins';
+    font-size: 9.5px;
+    color: #777;
+}
+
+.request_text-link {
+    font-family: 'poppins';
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: black;
+}
+
+.request_button-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.request_secondary-cta {
+    background-color: transparent;
+    border: none;
+    font-family: 'poppins';
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+.request_right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}

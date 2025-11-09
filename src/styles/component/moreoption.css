@@ -1,0 +1,35 @@
+.more_option_container{
+    position: absolute;
+    right: 10px;
+    top: 75%;
+    z-index: 2;
+    background-color: rgb(249 250 251);
+    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 5px;
+}
+.act_more_options{
+    display: flex;
+    flex-direction: column;
+    /* width: 140px; */
+    align-items: flex-start;
+}
+.more_options_title{
+    padding: 10px 8px;
+    color: rgb(59, 59, 59);
+    border: none;
+    outline: none;
+    width: 140px;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    font-family: 'poppins';
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.delete_btn{
+    color: red;
+}
+.more_options_title:hover{
+    cursor: pointer;
+    background-color: rgb(236, 236, 236);
+}

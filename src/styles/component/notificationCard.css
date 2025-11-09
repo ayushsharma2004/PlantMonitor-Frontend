@@ -1,0 +1,118 @@
+@keyframes spaceOutRight {
+    0% {
+        opacity: 1;
+        transform-origin: 100% 50%;
+        transform: scale(1) translate(0%, 0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform-origin: 100% 50%;
+        transform: scale(0.2) translate(200%, 0%);
+    }
+}
+
+.notification_card {
+    width: fit-content;
+    background-color: #f2f3f7;
+    border-radius: 0.75em;
+    cursor: pointer;
+    transition: ease 0.2s;
+    box-shadow: 1em 1em 1em #d8dae0b1, -0.75em -0.75em 1em #ffffff;
+    border: 1.5px solid #f2f3f7;
+}
+
+.notification_card.remove {
+    animation: spaceOutRight 0.5s ease-in-out forwards;
+}
+
+.notification_card:hover {
+    background-color: #d8e5f9;
+    border: 1.5px solid #225cb8;
+}
+
+.notification_card_container {
+    margin-top: 1.25em;
+    margin-bottom: 1.375em;
+    margin-left: 1.375em;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75em;
+}
+
+.notification_card_status-ind {
+    width: 0.625em;
+    height: 0.625em;
+    background-color: #225cb8;
+    margin: 0.375em 0;
+    border-radius: 0.5em;
+}
+
+.notification_card_text-wrap {
+    font-family: 'poppins';
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    color: #333;
+}
+
+.notification_card_text-link {
+    font-family: 'poppins';
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: black;
+}
+
+.notification_card_button-wrap {
+    font-family: 'poppins';
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    align-items: center;
+}
+
+.notification_card_secondary-cta {
+    font-family: 'poppins';
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+}
+
+.notification_card_tertiary-cta {
+    font-family: 'poppins';
+    font-size: 14px;
+    background-color: transparent;
+    font-weight: 600;
+    color: rgb(188, 1, 1);
+    border: none;
+    border-radius: 1.5em;
+    cursor: pointer;
+}
+
+.notification_card_primary-cta {
+    font-family: 'poppins';
+    font-size: 14px;
+    background-color: transparent;
+    font-weight: 600;
+    color: #225cb8;
+    border: none;
+    border-radius: 1.5em;
+    cursor: pointer;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+.notification_card_right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875em;
+}

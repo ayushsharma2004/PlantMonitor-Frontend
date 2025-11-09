@@ -1,0 +1,121 @@
+.navigation_container{
+    height: 8vh !important;
+    width: 50vw;
+    background-color: rgb(10, 27, 54);
+    position: relative;
+    border: none !important;
+    /* position: fixed;
+    top: 0; */
+    z-index: 10;
+}
+.navigation_container1{
+    height: 8vh !important;
+    width: 50vw;
+    background-color: rgb(10, 27, 54);
+    position: relative;
+    border: none !important;
+    /* position: fixed;
+    top: 0; */
+    z-index: 10;
+}
+.navigation_content{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    padding: 0 10px;
+}
+.logo{
+    color: white;
+    font-size: 3vh;
+    font-family: 'poppins';
+    font-weight: bold;
+}
+.side_nav_container{
+    position: absolute;
+    height: 92vh;
+    top: 8vh;
+    left: 0;
+    background-color: white;
+    z-index: 10;
+    width: 300px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    padding: 20px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.side_nav_content{
+    height: 70vh;
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.side_nav_profile_sec{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    padding-left: 3px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+.side_nav_profile_sec .sidenav_pfp{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.side_nav_profile_sec:hover{
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+.sidenav_pfp img{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+.side_nav_profile_sec .side_nav_text{
+    font-family: 'poppins';
+    font-size: 17px;
+    font-weight: bolder;
+    color: #7e7e7e;
+}
+.horizontal_line{
+    border-bottom: 1px solid rgb(207, 207, 207);
+    margin-bottom: 8px;
+}
+.side_nav_items{
+    padding: 10px 5px;
+    font-family: 'poppins';
+    color: rgb(101, 101, 101);
+    cursor: pointer;
+    border-radius: 5px;
+}
+.side_nav_items:hover{
+    background-color: rgb(236, 236, 236);
+    
+}
+a.active .side_nav_profile_sec{
+    background-color:  rgb(236, 236, 236);
+}
+.bottom_items a.active .side_nav_items{
+    background-color: var(--primary-color);
+}
+.bottom_items a.active .side_nav_items{
+    color: white;
+}
+@media (max-width:900px){
+    .navigation_container{
+        width: 100%;
+    }
+    .navigation_container1{
+        width: 100%;
+    }
+}
+@media (max-width:301px) {
+    .side_nav_container{
+        width: 100%;
+    }
+}

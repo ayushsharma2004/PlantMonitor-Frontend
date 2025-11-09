@@ -1,0 +1,30 @@
+
+.top_ribbon {
+	position: absolute;
+	top:0;
+	right:15rem;
+	text-align: center;
+	background: #c00;
+	display: block;
+	width:8rem;
+	height:4rem;
+	padding-top:9rem;
+}
+
+.top_content {
+	color: #fff;
+	font: 32px sans-serif;
+}
+
+.top_ribbon:after {
+	content: "";
+	width: 100%;
+	top: 100%;
+	position: absolute;
+	display: block;
+	border-width: 1em;
+	border-color:#c00;
+	border-bottom-color: transparent;
+	border-style:solid;
+	box-sizing: border-box;
+}

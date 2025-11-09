@@ -1,0 +1,152 @@
+.student_landing {
+    width: inherit;
+    height: inherit;
+}
+
+.student_landing .landing_search {
+    margin-bottom: 0rem;
+    padding: 0 0;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+
+.student_landing .landing_top {
+    width: 97%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.student_landing .landing_top .refresh_box {
+    margin-top: 5px;
+    position: relative;
+}
+
+.student_landing .all_study {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.student_landing .all_study .vid_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 0.3rem 0;
+    margin: 0 3% 0.8rem 3%;
+}
+
+.student_landing .all_study .vid_title .space-x-1 {
+    font-size: 1.2rem !important;
+    font-style: normal;
+}
+
+
+.student_landing .all_study .vid_title .tracking-\[-0\.1em\] {
+    letter-spacing: -0.2rem !important;
+}
+
+.student_landing .all_study .view_more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.8rem;
+}
+
+
+.student_landing .for_you {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.student_landing .for_you .vid_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 0.3rem 0;
+    margin: 0 3% 0.8rem 3%;
+}
+
+.student_landing .for_you .vid_title .space-x-1 {
+    font-size: 1.2rem !important;
+    font-style: normal;
+}
+
+
+.student_landing .for_you .vid_title .tracking-\[-0\.1em\] {
+    letter-spacing: -0.2rem !important;
+}
+
+.student_landing .for_you .view_more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.8rem;
+}
+
+.view_button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(6, 30, 65);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(22, 65, 136, 0.253);
+    cursor: pointer;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    position: relative;
+}
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.5s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.view_button:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.5s;
+    background-color: #164288;
+    align-items: center;
+}
+
+.view_button:hover .svgIcon {
+    /* width: 20px; */
+    transition-duration: 0.5s;
+    transform: translateY(200%);
+}
+
+.view_button::before {
+    position: absolute;
+    bottom: -20px;
+    content: "View more";
+    color: white;
+    /* transition-duration: .3s; */
+    font-size: 0px;
+}
+
+.view_button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    /* transform: translateY(-30px); */
+    transition-duration: 0.5s;
+}

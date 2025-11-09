@@ -1,0 +1,77 @@
+.delete_form_container{
+    position: fixed;
+    left: 0;
+    top: 0vh;
+    width: 50vw;
+    height: 100vh;
+    background-color: rgba(24, 24, 24, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+.delete_container{
+    width: 350px;
+    /* height: 200px; */
+    display: flex;
+    flex-direction: column;
+    /* height: 200px; */
+    /* border: 1px solid black; */
+    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+.delete_title h1{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'poppins';
+    color: rgb(49, 49, 49);
+    margin-bottom: 10px;
+}
+.delete_desc{
+    font-family: 'poppins';
+    font-size: 13px;
+    background:rgb(249 250 251);
+    margin-bottom: 20px;
+}
+.bold_title{
+    font-weight: bold;
+}
+.delete_actions{
+    display: flex;
+    justify-content: space-between;
+}
+.confirm_delete_btn{
+    padding: 10px;
+    width: 49%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'poppins';
+    background-color: red !important;
+}
+.cancel_delete_btn{
+    padding: 10px;
+    width: 49%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    font-family: 'poppins';
+    background-color: rgb(200, 200, 200) !important;
+}
+.red{
+    color: red;
+}
+@media (max-width:350px) {
+    .delete_container {
+        width: 100vw !important;
+    }
+}
+@media (max-width: 900px) {
+    .delete_form_container {
+        width: 100vw;
+    }
+}

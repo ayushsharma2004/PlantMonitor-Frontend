@@ -1,0 +1,35 @@
+import "@/styles/ui/refreshButton.css"
+import { useState } from "react"
+
+export default function RefreshButton({ theme, set, value, set2, item }) {
+    const [animate, setAnimate] = useState(false);
+
+    const handleRefresh = async () => {
+        setAnimate(true)
+        localStorage.removeItem(item)
+        if (value) {
+            set(value)
+        } else {
+            set(false);
+        }
+        if (set2) {
+            set2(false)
+        }
+        setTimeout(() => {
+            setAnimate(false)
+        }, 800);
+    }
+
+    return (
+        <button className={`refresh_button ${theme}`} type="button" onClick={handleRefresh}>
+            <span className="refresh_button_text">Refresh</span>
+            <span className="refresh_button_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width={48} viewBox="0 0 48 48" height={48} className={`refresh_svg ${animate ? 'rotate' : ''}`}>
+                    <path d="M35.3 12.7c-2.89-2.9-6.88-4.7-11.3-4.7-8.84 0-15.98 7.16-15.98 16s7.14 16 15.98 16c7.45 0 13.69-5.1 15.46-12h-4.16c-1.65 4.66-6.07 8-11.3 8-6.63 0-12-5.37-12-12s5.37-12 12-12c3.31 0 6.28 1.38 8.45 3.55l-6.45 6.45h14v-14l-4.7 4.7z" />
+                    <path fill="none" d="M0 0h48v48h-48z" />
+                </svg>
+            </span>
+        </button>
+
+    )
+}

@@ -1,0 +1,294 @@
+.student_register {
+  width: 50vw;
+  height: 92vh;
+  margin: auto;
+  background: url("../assets/login_background.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student_register .form {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
+
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.student_register .title {
+  font-size: 28px;
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.student_register .title::before,
+.student_register .title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: var(--primary-color);
+}
+
+.student_register .title::before {
+  width: 18px;
+  height: 18px;
+  background-color: var(--primary-color);
+}
+
+.student_register .title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.student_register .message,
+.student_register .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.student_register .signin {
+  text-align: center;
+}
+
+.student_register .signin a {
+  color: #2760b8;
+}
+
+.student_register .signin a:hover {
+  text-decoration: underline #3773ce;
+}
+
+.student_register .flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.student_register .form label {
+  position: relative;
+}
+
+.student_register .form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  /* border: 1px solid rgba(105, 105, 105, 0.397); */
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.student_register .form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.student_register .form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.student_register .form label .input:focus + span,
+.student_register .form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.student_register .form label .input:valid + span {
+  color: green;
+}
+
+.student_register .submit {
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.student_register .submit:hover {
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.03);
+  background-color: #1a4fa3;
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -o-transform: scale(1.03);
+}
+
+.resend_button {
+  background: none;
+  border: none;
+  color: #2760b8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.button_disabled {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #334662;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.student_register .inputGroup {
+  font-family: "poppins";
+  position: relative;
+}
+
+.student_register .inputGroup input {
+  height: 7.5vh;
+  font-size: 0.9em;
+  padding: 0.8em;
+  outline: none;
+  /* border: 2px solid rgb(200, 200, 200); */
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* background-color: transparent; */
+  border-radius: 10px;
+  width: 100%;
+  color: #444;
+  transition: all 0.3s ease;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.student_register .inputGroup input::placeholder {
+  opacity: 1;
+  color: rgb(100, 100, 100) !important;
+}
+
+/* Placeholder disappears when input is focused */
+input:focus::placeholder {
+  opacity: 0;
+  transition: all 0.3s ease;
+  /* Makes the placeholder disappear */
+}
+
+.student_register .inputGroup label {
+  pointer-events: none;
+  opacity: 0;
+  padding: 0.8em;
+  margin-bottom: auto;
+  font-size: 15px;
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(100, 100, 100);
+}
+
+/* .student_register .inputGroup :is(input:focus, input:valid) ~ label {
+  transform: translateY(-50%) scale(0.9);
+  opacity: 1;
+  margin: 0em;
+  padding: 0em 0.3em;
+  margin-left: 1.3em;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-transform: translateY(-50%) scale(0.9);
+  -moz-transform: translateY(-50%) scale(0.9);
+  -ms-transform: translateY(-50%) scale(0.9);
+  -o-transform: translateY(-50%) scale(0.9);
+} */
+
+.student_register .inputGroup :is(input:focus, input:valid) {
+  border-color: #4f84db;
+}
+
+@media (max-width: 900px) {
+  .student_register {
+    width: 100vw;
+  }
+
+  .login_nav_container {
+    width: 100vw;
+  }
+}
+
+/* @media (max-width: 350px) {
+  .main_container_login .login_form {
+    width: 100vw;
+  }
+
+  .main_container_login .login_form form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 300px) {
+  .main_container_login .login_form form {
+    width: 95%;
+  }
+} */
+.profile-pic-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.profile-pic-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-pic-preview span {
+  color: #777;
+  text-align: center;
+}

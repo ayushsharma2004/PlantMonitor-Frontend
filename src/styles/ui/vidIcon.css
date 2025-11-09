@@ -1,0 +1,30 @@
+.vid_icon {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background: linear-gradient(30deg, #1677ff 20%, #509AF8 80%);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 0 rgba(22, 119, 255, 0.6);
+    animation: pulse 1.2s cubic-bezier(0.8, 0, 0, 1) infinite;
+    align-items: center;
+    border: 0;
+}
+
+.vid_icon:is(:hover, :focus) {
+    transform: scale(1.1);
+}
+
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(22, 119, 255, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(22, 119, 255, 0);
+    }
+}

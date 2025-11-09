@@ -1,0 +1,117 @@
+@keyframes rotate-center {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-center {
+    animation: rotate-center 1s ease-in-out both;
+}
+
+.refresh_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #0078E8;
+    background-color: #0a77e3;
+    overflow: hidden;
+}
+
+.refresh_button.dark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #24487e;
+    background-color: #2c5695;
+    overflow: hidden;
+}
+
+.refresh_button,
+.refresh_button_icon,
+.refresh_button_text {
+    transition: all 0.3s;
+}
+
+.refresh_button .refresh_button_text {
+    font-size: 13px;
+    font-family: 'poppins';
+    transform: translateX(10px);
+    color: #fff;
+    font-weight: 400;
+}
+
+.refresh_button .refresh_button_icon {
+    position: absolute;
+    transform: translateX(78px);
+    height: 100%;
+    width: 30px;
+    background-color: #0c6dcd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh_button.dark .refresh_button_icon {
+    position: absolute;
+    transform: translateX(78px);
+    height: 100%;
+    width: 30px;
+    background-color: #264c86;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh_button .refresh_svg {
+    width: 18px;
+    fill: #fff;
+}
+
+.refresh_button:hover {
+    background: #0078E8;
+}
+
+.refresh_button.dark:hover {
+    background: #2c5695;
+}
+
+.refresh_button:hover .refresh_button_text {
+    color: transparent;
+}
+
+.refresh_button:hover .refresh_button_icon {
+    width: 110px;
+    transform: translateX(0);
+}
+
+.refresh_button:active .refresh_button_icon {
+    background-color: #0b64bb;
+}
+
+.refresh_button.dark:active .refresh_button_icon {
+    background-color: #2c5695;
+}
+
+.refresh_button_icon .refresh_svg.rotate {
+    animation: rotate-center 0.6s ease-in-out both;
+}
+
+.refresh_button:active {
+    border: 1px solid #0a5eb1;
+}

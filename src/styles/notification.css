@@ -1,0 +1,61 @@
+.notification_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.8rem;
+    z-index: 1;
+}
+
+.notification_container .notification_top {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0.3rem 0.1rem;
+    justify-content: space-between;
+}
+
+.notification_container .notification_top .notification_heading {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'poppins';
+}
+
+.notification_container .notification_cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+.user_card_container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    transition: background-color 1s ease-in-out, opacity 1s ease-in-out;
+    background-color: rgba(0, 0, 0, 0);
+    /* Start with a transparent background */
+    opacity: 0;
+    /* Start with full transparency */
+}
+
+.user_back.show {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}

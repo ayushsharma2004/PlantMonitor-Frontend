@@ -1,0 +1,22 @@
+.login_nav_container {
+    margin: auto;
+    height: 8vh;
+    width: 50vw;
+    background-color: #0a1b36;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .login_nav_container {
+        width: 100vw;
+    }
+}
