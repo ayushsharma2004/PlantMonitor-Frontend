@@ -13,7 +13,7 @@ export default function PlantLanding() {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://https://plantmonitor-backend.onrender.com/api/v1/plants/all-plants"
+        "https://plantmonitor-backend.onrender.com/api/v1/plants/all-plants"
       );
 
       if (res.data.success && res.data.plants) {
