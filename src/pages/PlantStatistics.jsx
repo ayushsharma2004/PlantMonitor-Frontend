@@ -15,7 +15,7 @@ export default function PlantStatistics() {
 
       try {
         const response = await axios.get(
-          `https://rmwcvlcc-8080.inc1.devtunnels.ms/api/v1/plants/plant/${plantId}`
+          `https://plantmonitor-backend.onrender.com/api/v1/plants/plant/${plantId}`
         );
 
         if (response.data && response.data.success) {

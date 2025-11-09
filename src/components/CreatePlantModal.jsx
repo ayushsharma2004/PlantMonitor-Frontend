@@ -28,7 +28,7 @@ export default function CreatePlantModal({ isOpen, onClose, onSave }) {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/v1/plants/update-plant",
+        "https://plantmonitor-backend.onrender.com/api/v1/plants/update-plant",
         {
           plantId: formData.plantId,
           plantName: formData.plantName,
