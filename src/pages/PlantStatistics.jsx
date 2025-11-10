@@ -27,7 +27,7 @@ export default function PlantStatistics() {
 
         if (data?.success) {
           const plant = data.plant;
-          const wet = 1800;
+          const wet = 1600;
           const dry = 4800;
 
           let calculatedMoisture = 0;
