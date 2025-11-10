@@ -13,6 +13,7 @@ export default function PlantStatistics() {
   const [plantData, setPlantData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [healthStatus, setHealthStatus] = useState(null);
 
   useEffect(() => {
     const fetchPlantData = async () => {
@@ -69,6 +70,68 @@ export default function PlantStatistics() {
               plant.watering_recommendation;
 
           setPlantData(newPlantData);
+
+          // ✅ Calculate overall practical health
+          let healthScore = 0;
+          let count = 0;
+
+          if (newPlantData.moisture) {
+            if (newPlantData.moisture >= 40 && newPlantData.moisture <= 70)
+              healthScore += 100;
+            else if (newPlantData.moisture >= 30 && newPlantData.moisture <= 80)
+              healthScore += 75;
+            else healthScore += 40;
+            count++;
+          }
+
+          if (newPlantData.temperature) {
+            const temp = parseFloat(newPlantData.temperature);
+            if (temp >= 18 && temp <= 30) healthScore += 100;
+            else if (temp >= 15 && temp <= 35) healthScore += 70;
+            else healthScore += 40;
+            count++;
+          }
+
+          if (newPlantData.soil_temperature) {
+            const soil = parseFloat(newPlantData.soil_temperature);
+            if (soil >= 20 && soil <= 28) healthScore += 100;
+            else if (soil >= 15 && soil <= 32) healthScore += 70;
+            else healthScore += 40;
+            count++;
+          }
+
+          if (newPlantData.evaporative_demand) {
+            const ed = String(newPlantData.evaporative_demand).toLowerCase();
+            if (ed.includes("low") || ed.includes("moderate"))
+              healthScore += 100;
+            else if (ed.includes("high")) healthScore += 60;
+            else healthScore += 40;
+            count++;
+          }
+
+          const avgHealth = count > 0 ? healthScore / count : 0;
+
+          let healthText = "Unknown";
+          let color = "text-neutral-600";
+          if (avgHealth >= 85) {
+            healthText = "Excellent 🌿";
+            color = "text-emerald-600";
+          } else if (avgHealth >= 70) {
+            healthText = "Good 🌱";
+            color = "text-green-600";
+          } else if (avgHealth >= 50) {
+            healthText = "Fair 🍂";
+            color = "text-amber-600";
+          } else {
+            healthText = "Poor 🥀";
+            color = "text-rose-600";
+          }
+
+          setHealthStatus({
+            score: avgHealth.toFixed(1),
+            text: healthText,
+            color,
+          });
         } else {
           setError("No data found for this plant.");
         }
@@ -169,6 +232,17 @@ export default function PlantStatistics() {
               Watering {plantData.wateringStatus}
             </div>
           </div>
+
+          {/* 🌿 Practical Health */}
+          {healthStatus && (
+            <div className="mt-6 flex items-center gap-2 text-sm font-medium">
+              <Leaf className={`w-4 h-4 ${healthStatus.color}`} />
+              <span className={`${healthStatus.color}`}>
+                Practical Health: {healthStatus.text} ({healthStatus.score}
+                %)
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Sensor Grid */}
