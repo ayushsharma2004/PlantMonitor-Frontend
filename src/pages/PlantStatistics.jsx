@@ -3,7 +3,6 @@ import axios from "axios";
 
 export default function PlantStatistics() {
   const plantId = "plant-006";
-
   const [plantData, setPlantData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -22,7 +21,7 @@ export default function PlantStatistics() {
           const plant = response.data.plant;
           console.log("Fetched plant data:", plant);
 
-          // ✅ plant.moisture is raw analog value (0–4095)
+          // ✅ Calculate moisture percentage (based on raw sensor value)
           const wet = 2500;
           const dry = 4800;
           let calculatedMoisture = 0;
@@ -30,23 +29,35 @@ export default function PlantStatistics() {
           if (plant.moisture !== undefined && plant.moisture !== null) {
             calculatedMoisture =
               ((dry - Number(plant.moisture)) / (dry - wet)) * 100;
-
-            // Clamp between 0–100%
             calculatedMoisture = Math.min(100, Math.max(0, calculatedMoisture));
           }
 
           calculatedMoisture = Number(calculatedMoisture.toFixed(1));
-
           const wateringStatus = calculatedMoisture < 30 ? "ON" : "OFF";
 
-          setPlantData({
+          // ✅ Prepare plant data (only include non-zero / valid data)
+          const newPlantData = {
             name: plant.plantName || "Unknown",
             category: plant.plantCategory || "N/A",
-            moisture: calculatedMoisture,
-            temperature: plant.temperature || 0,
-            humidity: plant.humidity || 0,
             wateringStatus,
-          });
+          };
+
+          if (calculatedMoisture > 0)
+            newPlantData.moisture = calculatedMoisture;
+          if (plant.temperature > 0)
+            newPlantData.temperature = plant.temperature;
+          if (plant.soil_temperature > 0)
+            newPlantData.soil_temperature = plant.soil_temperature;
+          if (plant.evaporative_demand > 0)
+            newPlantData.evaporative_demand = plant.evaporative_demand;
+          if (
+            plant.watering_recommendation &&
+            plant.watering_recommendation.trim() !== ""
+          )
+            newPlantData.watering_recommendation =
+              plant.watering_recommendation;
+
+          setPlantData(newPlantData);
         } else {
           setError("No data found for this plant.");
         }
@@ -134,60 +145,96 @@ export default function PlantStatistics() {
         {/* Sensor Data */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Moisture */}
-          <div className="bg-white border border-neutral-200 rounded-xl p-6">
-            <h3 className="text-sm font-medium text-neutral-700 mb-3">
-              Moisture
-            </h3>
-            <div
-              className={`text-3xl font-semibold mb-3 ${getMoistureColor(
-                plantData.moisture
-              )}`}
-            >
-              {plantData.moisture}%
-            </div>
-            <div className="text-xs text-neutral-600 mb-3">
-              Watering{" "}
-              <span
-                className={`font-semibold ${
-                  plantData.wateringStatus === "ON"
-                    ? "text-blue-600"
-                    : "text-neutral-500"
-                }`}
-              >
-                {plantData.wateringStatus}
-              </span>
-            </div>
-            <div className="w-full bg-neutral-100 rounded-full h-1.5 overflow-hidden">
+          {plantData.moisture > 0 && (
+            <div className="bg-white border border-neutral-200 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">
+                Moisture
+              </h3>
               <div
-                className={`h-full rounded-full transition-all duration-300 ${getMoistureBgColor(
+                className={`text-3xl font-semibold mb-3 ${getMoistureColor(
                   plantData.moisture
                 )}`}
-                style={{ width: `${plantData.moisture}%` }}
-              />
+              >
+                {plantData.moisture}%
+              </div>
+              <div className="text-xs text-neutral-600 mb-3">
+                Watering{" "}
+                <span
+                  className={`font-semibold ${
+                    plantData.wateringStatus === "ON"
+                      ? "text-blue-600"
+                      : "text-neutral-500"
+                  }`}
+                >
+                  {plantData.wateringStatus}
+                </span>
+              </div>
+              <div className="w-full bg-neutral-100 rounded-full h-1.5 overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all duration-300 ${getMoistureBgColor(
+                    plantData.moisture
+                  )}`}
+                  style={{ width: `${plantData.moisture}%` }}
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Temperature */}
-          <div className="bg-white border border-neutral-200 rounded-xl p-6">
-            <h3 className="text-sm font-medium text-neutral-700 mb-3">
-              Temperature
-            </h3>
-            <div className="text-3xl font-semibold text-orange-600 mb-3">
-              {plantData.temperature}°C
+          {plantData.temperature > 0 && (
+            <div className="bg-white border border-neutral-200 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">
+                Temperature
+              </h3>
+              <div className="text-3xl font-semibold text-orange-600 mb-3">
+                {plantData.temperature}°C
+              </div>
+              <p className="text-xs text-neutral-600">Room temperature</p>
             </div>
-            <p className="text-xs text-neutral-600">Room temperature</p>
-          </div>
+          )}
 
-          {/* Humidity */}
-          <div className="bg-white border border-neutral-200 rounded-xl p-6">
-            <h3 className="text-sm font-medium text-neutral-700 mb-3">
-              Humidity
-            </h3>
-            <div className="text-3xl font-semibold text-cyan-600 mb-3">
-              {plantData.humidity}%
+          {/* Soil Temperature */}
+          {plantData.soil_temperature > 0 && (
+            <div className="bg-white border border-neutral-200 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">
+                Soil Temperature
+              </h3>
+              <div className="text-3xl font-semibold text-amber-700 mb-3">
+                {plantData.soil_temperature}°C
+              </div>
+              <p className="text-xs text-neutral-600">Soil heat level</p>
             </div>
-            <p className="text-xs text-neutral-600">Air humidity level</p>
-          </div>
+          )}
+
+          {/* Evaporative Demand */}
+          {plantData.evaporative_demand > 0 && (
+            <div className="bg-white border border-neutral-200 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">
+                Evaporative Demand
+              </h3>
+              <div className="text-3xl font-semibold text-sky-700 mb-3">
+                {plantData.evaporative_demand}
+              </div>
+              <p className="text-xs text-neutral-600">
+                Indicates plant water loss rate
+              </p>
+            </div>
+          )}
+
+          {/* Watering Recommendation */}
+          {plantData.watering_recommendation && (
+            <div className="bg-white border border-neutral-200 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-neutral-700 mb-3">
+                Watering Recommendation
+              </h3>
+              <div className="text-base font-semibold text-green-700">
+                {plantData.watering_recommendation}
+              </div>
+              <p className="text-xs text-neutral-600 mt-2">
+                Based on soil & moisture condition
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
